@@ -1,0 +1,38 @@
+---
+galaxy_info:
+  author: Jeffrey Swindel
+  description: Install and configure log2ram on Linux systems.
+  license: license (BSD, MIT)
+  min_ansible_version: '2.9'
+  namespace: jeffreyjs
+  role_name: log2ram
+  platforms:
+    - name: Fedora
+      versions:
+        - '34'
+        - '35'
+    - name: EL
+      versions:
+        - '7'
+        - '8'
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+        - bullseye
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags:
+    - system
+    - logs
+    - log2ram
+    - raspberry
+    - rpi
+
+dependencies: []
