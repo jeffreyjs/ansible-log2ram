@@ -1,0 +1,48 @@
+# Ansible managed
+---
+repos:
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v6.22.2
+    hooks:
+      - id: ansible-lint
+        name: ansible-lint
+        description: This hook runs ansible-lint.
+        entry: python3 -m ansiblelint -v --force-color
+        language: python
+        pass_filenames: false
+        always_run: true
+        additional_dependencies:
+          - ansible-core>=2.13.3
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-toml
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+        files: ^.*\.(sh)$
+      - id: check-json
+      - id: check-yaml
+      - id: check-symlinks
+      - id: debug-statements
+      - id: detect-private-key
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
+  - repo: local
+    hooks:
+      - id: shellcheck
+        name: shellcheck
+        description: Test shell scripts with shellcheck
+        entry: shellcheck
+        language: python
+        types: [shell]
+        require_serial: true
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.31.0
+    hooks:
+      - id: yamllint
+  
