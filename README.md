@@ -102,7 +102,7 @@ The following is an example of how to use this role:
 
 ## License
 
-MIT /
+MIT / BSD
 
 ## Author Information
 
