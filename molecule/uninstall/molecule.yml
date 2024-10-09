@@ -3,6 +3,10 @@ dependency:
   name: galaxy
 driver:
   name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 platforms:
   - name: instance
     image: "chzerv/${IMAGE:-fedora33}-systemd-ansible:${TAG:-latest}"
@@ -16,20 +20,5 @@ provisioner:
   playbooks:
     prepare: "../default/converge.yml"
     converge: "${MOLECULE_PLAYBOOK:-converge.yml}"
-scenario:
-  test_sequence:
-    - dependency
-    - lint
-    - cleanup
-    - destroy
-    - syntax
-    - create
-    - prepare
-    - converge
-    # - idempotence
-    - side_effect
-    - verify
-    - cleanup
-    - destroy
 verifier:
   name: ansible
