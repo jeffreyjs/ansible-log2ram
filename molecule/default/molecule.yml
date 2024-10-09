@@ -22,5 +22,18 @@ provisioner:
     ANSIBLE_VERBOSITY: 3
   playbooks:
     converge: "${MOLECULE_PLAYBOOK:-converge.yml}"
+scenario:
+  test_sequence:
+    - dependency
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    # - idempotence
+    - verify
+    - cleanup
+    - destroy
 verifier:
   name: ansible
