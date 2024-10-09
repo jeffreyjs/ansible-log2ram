@@ -5,10 +5,6 @@ dependency:
     requirements-file: collections.yml
 driver:
   name: docker
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
 platforms:
   - name: log2ram
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2404}-ansible:${TAG:-latest}"
